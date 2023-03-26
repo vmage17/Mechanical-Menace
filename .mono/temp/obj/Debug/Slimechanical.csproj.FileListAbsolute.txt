@@ -1,0 +1,11 @@
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\bin\Debug\Slimechanical.dll
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\bin\Debug\Slimechanical.pdb
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\bin\Debug\System.Security.Cryptography.Pkcs.dll
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\obj\Debug\Slimechanical.csproj.AssemblyReference.cache
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\obj\Debug\Slimechanical.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\obj\Debug\Slimechanical.AssemblyInfoInputs.cache
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\obj\Debug\Slimechanical.AssemblyInfo.cs
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\obj\Debug\Slimechanical.csproj.CoreCompileInputs.cache
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\obj\Debug\Slimechanical.csproj.CopyComplete
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\obj\Debug\Slimechanical.dll
+C:\Users\Msi\Desktop\Slimechanical\.mono\temp\obj\Debug\Slimechanical.pdb

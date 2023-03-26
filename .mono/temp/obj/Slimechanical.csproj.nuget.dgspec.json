@@ -1,0 +1,57 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Msi\\Desktop\\Slimechanical\\Slimechanical.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Msi\\Desktop\\Slimechanical\\Slimechanical.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Msi\\Desktop\\Slimechanical\\Slimechanical.csproj",
+        "projectName": "Slimechanical",
+        "projectPath": "C:\\Users\\Msi\\Desktop\\Slimechanical\\Slimechanical.csproj",
+        "packagesPath": "C:\\Users\\Msi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Msi\\Desktop\\Slimechanical\\.mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Msi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            },
+            "System.Security.Cryptography.Pkcs": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
