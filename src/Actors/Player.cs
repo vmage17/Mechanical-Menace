@@ -11,14 +11,37 @@ public class Player : Actor
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	// Both this and parent function are called automatically
 	public override void _PhysicsProcess(float delta)
 	{
-		Vector2 direction = new Vector2(
+		//GD.Print("_PhysicsProcess of Player");
+		//base._PhysicsProcess(delta);
+		bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0f;
+		Vector2 direction = getDirection();
+		velocity = calculateMoveVelocity(velocity, direction, speed, isJumpInterrupted);
+		velocity = MoveAndSlide(velocity, FLOOR_NORMAL);
+	}
+
+	public Vector2 getDirection() {
+		return new Vector2(
 			Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
-			0.0f
+			Input.IsActionJustPressed("jump") && IsOnFloor() ? -1.0f : 1.0f
 		);
-		velocity = speed * direction;
+	}
+
+	public Vector2 calculateMoveVelocity(
+		Vector2 linearVelocity,
+		Vector2 direction,
+		Vector2 speed,
+		bool isJumpInterrupted
+	) {
+		var newVelocity = linearVelocity;
+		newVelocity.x = speed.x * direction.x;
+		newVelocity.y += gravity * GetPhysicsProcessDeltaTime();
+		if (direction.y == -1.0f)
+			newVelocity.y = speed.y * direction.y;
+		if (isJumpInterrupted)
+			newVelocity.y = 0.0f;
+		return newVelocity;
 	}
 }
 
