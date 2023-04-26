@@ -4,10 +4,22 @@ using System;
 public class Player : Actor
 {
 
+	private float stompImpulse = 1000.0f;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		
+	}
+
+	public void onEnemyDetectorAreaEntered(Area2D area)
+	{
+		velocity = calculateStompVelocity(velocity, stompImpulse);
+	}
+
+	private void onEnemyDetectorBodyEntered(Node body)
+	{
+		QueueFree();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,5 +55,12 @@ public class Player : Actor
 			newVelocity.y = 0.0f;
 		return newVelocity;
 	}
-}
 
+	private Vector2 calculateStompVelocity(Vector2 linearVelocity, float impulse)
+	{
+		var newVelocity = linearVelocity;
+		newVelocity.y = -impulse;
+		//GD.Print("New volcity: (" + newVelocity.x + " ," + newVelocity.y + ")");
+		return newVelocity;
+	}
+}

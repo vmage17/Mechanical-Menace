@@ -8,11 +8,19 @@ public class Enemy : Actor
 	public override void _Ready()
 	{
 		SetPhysicsProcess(false);
-		velocity = -speed * 0.5f;
+		velocity.x = -speed.x * 0.5f;
+	}
+
+	private void onStompDetectorBodyEntered(PhysicsBody2D body)
+	{
+		//if (body.GlobalPosition.y > GetNode("StompDetector").GlobalPosition.y)
+		//	return;
+		//GetNode("CollisionShape2D").Disabled(true);
+		QueueFree();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(float delta)
+	public override void _PhysicsProcess(float delta)
 	{
 		velocity.y += gravity * delta;
 		if (IsOnWall())
@@ -20,3 +28,4 @@ public class Enemy : Actor
 		velocity.y = MoveAndSlide(velocity, FLOOR_NORMAL).y;
 	}
 }
+
