@@ -4,9 +4,12 @@ using System;
 public class Enemy : Actor
 {
 
+	private Energy instancedEnergy;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		//instancedEnergy = ResourceLoader.Load("res://src/Objects/Energy.tscn").Get();
 		SetPhysicsProcess(false);
 		velocity.x = -speed.x * 0.5f;
 	}
@@ -16,6 +19,11 @@ public class Enemy : Actor
 		//if (body.GlobalPosition.y > GetNode("StompDetector").GlobalPosition.y)
 		//	return;
 		//GetNode("CollisionShape2D").Disabled(true);
+
+		//Energy enemyEnergy = new Energy();
+		//enemyEnergy.GlobalPosition = this.GlobalPosition;
+		//GetParent().AddChild(enemyEnergy);
+		
 		QueueFree();
 	}
 
