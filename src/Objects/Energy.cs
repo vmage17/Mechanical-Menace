@@ -25,6 +25,7 @@ public class Energy : KinematicBody2D
 
 	private void onPlayerEntered(PhysicsBody2D body)
 	{
-		animationPlayer.Play("fade_out");
+		if(body.Name == "Player")
+			animationPlayer.Play("fade_out");
 	}
 }

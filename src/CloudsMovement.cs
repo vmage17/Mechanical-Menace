@@ -5,7 +5,7 @@ public class CloudsMovement : ParallaxLayer
 {
 
 	[Export]
-	private int CLOUD_SPEED = -1;
+	private float CLOUD_SPEED = -0.4f;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
