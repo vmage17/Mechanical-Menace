@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "ur+ioAm8MA7sn+7pj/0k3zcWccKfaXori1/oGbPvC3Z0h2g+TSWdkCKVIvBbUxBCgn+Ivt6+j6FGujjIxmPang==",
+  "dgSpecHash": "OTqNh57KRxBQ2/T/qZQgT7S1K/XegXx7c8NtIgNPv5UpKb/9RBPDawe+QUyJk3FRoFVIzh852iyzc8gjQGLJyQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Msi\\Desktop\\Slimechanical\\Slimechanical.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Msi\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "C:\\Users\\Msi\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\system.security.cryptography.pkcs\\5.0.0\\system.security.cryptography.pkcs.5.0.0.nupkg.sha512"
   ],
   "logs": []

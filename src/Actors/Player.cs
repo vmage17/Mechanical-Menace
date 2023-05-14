@@ -4,7 +4,8 @@ using System;
 public class Player : Actor
 {
 
-	private float stompImpulse = 1000.0f;
+	// Jump impulse gain by player after killing slime
+	private float stompImpulse = 1800.0f;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -12,13 +13,17 @@ public class Player : Actor
 		
 	}
 
+	// When player enters stomp area
 	public void onEnemyDetectorAreaEntered(Area2D area)
 	{
+		// Adjusting vertical velocity
 		velocity = calculateStompVelocity(velocity, stompImpulse);
 	}
 
+	// When enemy enters player area
 	private void onEnemyDetectorBodyEntered(Node body)
 	{
+		// Killing the player
 		QueueFree();
 	}
 
@@ -27,15 +32,20 @@ public class Player : Actor
 	{
 		//GD.Print("_PhysicsProcess of Player");
 		//base._PhysicsProcess(delta);
+
+		//
 		bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0f;
 		Vector2 direction = getDirection();
 		velocity = calculateMoveVelocity(velocity, direction, speed, isJumpInterrupted);
 		velocity = MoveAndSlide(velocity, FLOOR_NORMAL);
 	}
 
+	// Returns direction vector
 	public Vector2 getDirection() {
 		return new Vector2(
+			// Checking if player is not pressing left and right movement keys
 			Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
+			// Checking if player is on the ground
 			Input.IsActionJustPressed("jump") && IsOnFloor() ? -1.0f : 1.0f
 		);
 	}
