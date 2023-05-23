@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Slimechanical"
-run/main_scene="res://src/Levels/LevelTemplate.tscn"
+run/main_scene="res://src/Screens/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

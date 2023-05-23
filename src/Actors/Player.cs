@@ -24,7 +24,7 @@ public class Player : Actor
 	private void onEnemyDetectorBodyEntered(Node body)
 	{
 		// Killing the player
-		QueueFree();
+		//QueueFree();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
