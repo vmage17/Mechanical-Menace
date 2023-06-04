@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.stex"
+path="res://.import/carrot_animation.png-0901c320f4271965b4c06dae9755cd48.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon.png"
-dest_files=[ "res://.import/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.stex" ]
+source_file="res://assets/carrot_animation.png"
+dest_files=[ "res://.import/carrot_animation.png-0901c320f4271965b4c06dae9755cd48.stex" ]
 
 [params]
 

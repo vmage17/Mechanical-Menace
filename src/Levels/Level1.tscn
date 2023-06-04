@@ -609,7 +609,7 @@ margin_right = 725.0
 margin_bottom = -1146.0
 
 [node name="Slime" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 1280, 572 )
+position = Vector2( 5468, 308 )
 
 [node name="Slime2" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 2621, 422 )
@@ -628,6 +628,9 @@ position = Vector2( 9765, 170 )
 
 [node name="Carrot" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 663, 236 )
+
+[node name="Carrot3" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 1443, 288 )
 
 [node name="Carrot2" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 4285, 297 )

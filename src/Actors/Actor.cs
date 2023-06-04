@@ -3,6 +3,13 @@ using System;
 
 public class Actor : KinematicBody2D
 {
+
+	protected enum DIRECTION {
+		Left,
+		Right,
+		Up,
+		Down
+	}
 	
 	public static Vector2 FLOOR_NORMAL = new Vector2(0.0f, -1.0f);
 	protected const float gravity = 4000.0f;

@@ -5,24 +5,44 @@ public class Player : Actor
 {
 
 	// Jump impulse gain by player after killing slime
-	private float stompImpulse = 1800.0f;
+	private float impulse = 1800.0f;
+
+	private bool isStaved = false;
+
+	DIRECTION stavedDirection = DIRECTION.Left;
+
+	private Timer timer;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		// Setting timer
+		timer = new Timer();
+		AddChild(timer);
+		timer.OneShot = true;
+		timer.Connect("timeout", this, "turnIsStavedFalse");
+	}
+
+	private void turnIsStavedFalse() {
+		isStaved = false;
 	}
 
 	// When player enters stomp area
 	public void onEnemyDetectorAreaEntered(Area2D area)
 	{
-		// Adjusting vertical velocity
-		velocity = calculateStompVelocity(velocity, stompImpulse);
+		// Adjusting vertical velocity after stomp
+		velocity = calculateNewVelocity(velocity, impulse, DIRECTION.Up);
 	}
 
 	// When enemy enters player area
-	private void onEnemyDetectorBodyEntered(Node body)
+	private void onEnemyDetectorBodyEntered(PhysicsBody2D body)
 	{
+
+		DIRECTION direction = (body.GlobalPosition >= this.GlobalPosition) ? DIRECTION.Left : DIRECTION.Right;
+
+		// Adjusting horizontal stave velocity
+		velocity = calculateNewVelocity(velocity, impulse, direction);
+
 		// Killing the player
 		//QueueFree();
 	}
@@ -36,6 +56,7 @@ public class Player : Actor
 		//
 		bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0f;
 		Vector2 direction = getDirection();
+		//GD.Print(direction);
 		velocity = calculateMoveVelocity(velocity, direction, speed, isJumpInterrupted);
 		velocity = MoveAndSlide(velocity, FLOOR_NORMAL);
 	}
@@ -57,7 +78,12 @@ public class Player : Actor
 		bool isJumpInterrupted
 	) {
 		var newVelocity = linearVelocity;
-		newVelocity.x = speed.x * direction.x;
+		if (isStaved) {
+			newVelocity.x = speed.x * ((stavedDirection == DIRECTION.Left) ? -1.0f : 1.0f);
+		}
+		else {
+			newVelocity.x = speed.x * direction.x;
+		}
 		newVelocity.y += gravity * GetPhysicsProcessDeltaTime();
 		if (direction.y == -1.0f)
 			newVelocity.y = speed.y * direction.y;
@@ -66,11 +92,35 @@ public class Player : Actor
 		return newVelocity;
 	}
 
-	private Vector2 calculateStompVelocity(Vector2 linearVelocity, float impulse)
+	private Vector2 calculateNewVelocity(Vector2 linearVelocity, float impulse, DIRECTION direction)
 	{
 		var newVelocity = linearVelocity;
-		newVelocity.y = -impulse;
-		//GD.Print("New volcity: (" + newVelocity.x + " ," + newVelocity.y + ")");
+		switch (direction) {
+			case DIRECTION.Left:
+				GD.Print("Impulse left");
+				isStaved = true;
+				stavedDirection = DIRECTION.Left;
+				timer.WaitTime = 0.5f;
+				timer.Start();
+			break;
+			case DIRECTION.Right:
+				GD.Print("Impulse right");
+				isStaved = true;
+				stavedDirection = DIRECTION.Right;
+				timer.WaitTime = 0.5f;
+				timer.Start();
+			break;
+			case DIRECTION.Up:
+				GD.Print("Impulse up");
+				newVelocity.y = -impulse;
+				
+			break;
+			case DIRECTION.Down:
+				GD.Print("Impulse down");
+				newVelocity.y = impulse;
+			break;
+		}
 		return newVelocity;
 	}
+
 }
