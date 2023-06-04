@@ -44,7 +44,7 @@ public class Player : Actor
 		velocity = calculateNewVelocity(velocity, impulse, direction);
 
 		// Killing the player
-		//QueueFree();
+		GetTree().ChangeScene("res://src/Levels/Level1.tscn");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

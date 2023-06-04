@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/UserInterface/NewGame.cs" type="Script" id=1]
+[ext_resource path="res://assets/UI/MainMenu/Menu_btn_NewGame_act.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/MainMenu/Menu_btn_NewGame.png" type="Texture" id=3]
+
+[node name="NewGame" type="TextureButton"]
+margin_right = 258.0
+margin_bottom = 74.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[connection signal="button_up" from="." to="." method="onButtonUp"]

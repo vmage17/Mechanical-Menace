@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/UserInterface/Continue.cs" type="Script" id=1]
+[ext_resource path="res://assets/UI/MainMenu/Menu_btn_Continue.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/MainMenu/Menu_btn_Continue_act.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/MainMenu/Menu_btn_Continue_inact.png" type="Texture" id=4]
+
+[node name="Continue" type="TextureButton"]
+margin_right = 258.0
+margin_bottom = 74.0
+size_flags_vertical = 3
+disabled = true
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+script = ExtResource( 1 )
+
+[connection signal="button_up" from="." to="." method="onButtonUp"]
