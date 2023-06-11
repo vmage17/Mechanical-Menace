@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/UserInterface/Back.cs" type="Script" id=1]
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.cs" type="Script" id=1]
 [ext_resource path="res://assets/UI/Credits/Menu_btn_Back.png" type="Texture" id=2]
 [ext_resource path="res://assets/UI/Credits/Menu_btn_Back_act.png" type="Texture" id=3]
 

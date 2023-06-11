@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/UserInterface/NewGame.cs" type="Script" id=1]
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.cs" type="Script" id=1]
 [ext_resource path="res://assets/UI/MainMenu/Menu_btn_NewGame_act.png" type="Texture" id=2]
 [ext_resource path="res://assets/UI/MainMenu/Menu_btn_NewGame.png" type="Texture" id=3]
 

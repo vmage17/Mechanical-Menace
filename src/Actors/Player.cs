@@ -7,6 +7,7 @@ public class Player : Actor
 	// Jump impulse gain by player after killing slime
 	private float impulse = 1800.0f;
 
+	//
 	private bool isStaved = false;
 
 	DIRECTION stavedDirection = DIRECTION.Left;
@@ -21,6 +22,16 @@ public class Player : Actor
 		AddChild(timer);
 		timer.OneShot = true;
 		timer.Connect("timeout", this, "turnIsStavedFalse");
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _PhysicsProcess(float delta)
+	{
+		//
+		bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0f;
+		Vector2 direction = getDirection();
+		velocity = calculateMoveVelocity(velocity, direction, speed, isJumpInterrupted);
+		velocity = MoveAndSlide(velocity, FLOOR_NORMAL);
 	}
 
 	private void turnIsStavedFalse() {
@@ -45,20 +56,7 @@ public class Player : Actor
 
 		// Killing the player
 		GetTree().ChangeScene("res://src/Levels/Level1.tscn");
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _PhysicsProcess(float delta)
-	{
-		//GD.Print("_PhysicsProcess of Player");
-		//base._PhysicsProcess(delta);
-
-		//
-		bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0f;
-		Vector2 direction = getDirection();
-		//GD.Print(direction);
-		velocity = calculateMoveVelocity(velocity, direction, speed, isJumpInterrupted);
-		velocity = MoveAndSlide(velocity, FLOOR_NORMAL);
+		//GetTree().ReloadCurrentScene()
 	}
 
 	// Returns direction vector
@@ -71,6 +69,7 @@ public class Player : Actor
 		);
 	}
 
+	// Returns velocity vector
 	public Vector2 calculateMoveVelocity(
 		Vector2 linearVelocity,
 		Vector2 direction,

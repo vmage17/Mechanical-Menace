@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/UI/Pause/Menu_btn_saveQuit.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/Pause/Pause_bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://src/UserInterface/Continue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/Options.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/Quit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/UI/Pause/Menu_btn_saveQuit_act.png" type="Texture" id=7]
+[ext_resource path="res://assets/UI/Pause/icon_SkillTree.png" type="Texture" id=8]
+[ext_resource path="res://assets/UI/Pause/Hero_glow.png" type="Texture" id=9]
+[ext_resource path="res://assets/UI/Pause/frame_EnergyBar.png" type="Texture" id=10]
+[ext_resource path="res://assets/UI/Pause/frame_ItemSlot_inact.png" type="Texture" id=11]
+[ext_resource path="res://assets/UI/Pause/Hero.png" type="Texture" id=12]
+[ext_resource path="res://assets/UI/Pause/btn_Upgrade.png" type="Texture" id=13]
+[ext_resource path="res://assets/UI/Pause/frame_Diamond.png" type="Texture" id=14]
+[ext_resource path="res://src/UserInterface/GameInterface.cs" type="Script" id=15]
+
+[node name="GameInterface" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 540.0 ],
+"_edit_vertical_guides_": [ 960.0 ]
+}
+
+[node name="PauseOverlay" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Menu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 435.0
+margin_top = 109.0
+margin_right = 826.0
+margin_bottom = 462.0
+alignment = 1
+
+[node name="ContinueButton" parent="PauseOverlay/Menu" instance=ExtResource( 4 )]
+margin_right = 391.0
+margin_bottom = 115.0
+disabled = false
+texture_disabled = null
+script = null
+
+[node name="OptionsButton" parent="PauseOverlay/Menu" instance=ExtResource( 5 )]
+margin_top = 119.0
+margin_right = 391.0
+margin_bottom = 234.0
+script = null
+
+[node name="QuitButton" parent="PauseOverlay/Menu" instance=ExtResource( 6 )]
+margin_top = 238.0
+margin_right = 391.0
+margin_bottom = 353.0
+texture_normal = ExtResource( 1 )
+texture_hover = ExtResource( 7 )
+script = null
+
+[node name="Interface" type="Control" parent="PauseOverlay"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Glow" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 683, 836 )
+texture = ExtResource( 9 )
+
+[node name="Player" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 683, 836 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 12 )
+
+[node name="Item 3" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 1242, 162 )
+texture = ExtResource( 11 )
+
+[node name="Item 2" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 960, 163 )
+texture = ExtResource( 11 )
+
+[node name="Item 1" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 673, 163 )
+texture = ExtResource( 11 )
+
+[node name="Energy Bar" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 347, 219 )
+texture = ExtResource( 10 )
+
+[node name="Upgrade" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 381, 267 )
+texture = ExtResource( 13 )
+
+[node name="LevelFrame" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 178, 220 )
+texture = ExtResource( 14 )
+
+[node name="SkillTree" type="Sprite" parent="PauseOverlay/Interface"]
+position = Vector2( 227, 398 )
+texture = ExtResource( 8 )
+
+[node name="Level" type="Label" parent="PauseOverlay/Interface"]
+margin_left = 172.0
+margin_top = 200.0
+margin_right = 187.0
+margin_bottom = 231.0
+rect_scale = Vector2( 1.4, 1.4 )
+theme = ExtResource( 3 )
+text = "1"
+
+[node name="Player Name" type="Label" parent="PauseOverlay/Interface"]
+margin_left = 241.0
+margin_top = 102.0
+margin_right = 404.0
+margin_bottom = 133.0
+rect_scale = Vector2( 1.4, 1.4 )
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.466667, 0.662745, 0.886275, 1 )
+text = "Player Name"
+
+[node name="Experience" type="Label" parent="PauseOverlay/Interface"]
+margin_left = 321.0
+margin_top = 205.0
+margin_right = 389.0
+margin_bottom = 236.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.215686, 0.231373, 0.298039, 1 )
+text = "0/100"
+
+[connection signal="button_up" from="PauseOverlay/Menu/ContinueButton" to="." method="onContinueButtonUp"]
+[connection signal="button_up" from="PauseOverlay/Menu/QuitButton" to="." method="onQuitButtonUp"]

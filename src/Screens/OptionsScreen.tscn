@@ -37,3 +37,4 @@ alignment = 1
 [node name="BackButton" parent="Menu" instance=ExtResource( 1 )]
 margin_right = 369.0
 margin_bottom = 108.0
+nextScenePath = "res://src/Screens/MainScreen.tscn"

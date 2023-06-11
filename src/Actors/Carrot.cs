@@ -123,10 +123,3 @@ public class Carrot : Enemy
 		velocity.y = MoveAndSlide(velocity, FLOOR_NORMAL).y;
 	}
 }
-
-// var spaceState = GetWorld2D().DirectSpaceState;
-// use global coordinates, not local to node
-// var query = PhysicsRayQueryParameters2D.Create(Vector2.Zero, new Vector2(1000, 0));
-// var result = spaceState.IntersectRay(query);
-// if (result.size() > 0)
-// 	GD.Print("Hit at point: ", result["position"]);

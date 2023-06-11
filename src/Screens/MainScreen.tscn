@@ -38,24 +38,28 @@ margin_right = 546.0
 margin_bottom = 433.0
 alignment = 1
 
-[node name="NewGame" parent="Menu" instance=ExtResource( 2 )]
+[node name="NewGameButton" parent="Menu" instance=ExtResource( 2 )]
 margin_right = 364.0
 margin_bottom = 108.0
+nextScenePath = "res://src/Levels/Level1.tscn"
 
-[node name="Continue" parent="Menu" instance=ExtResource( 6 )]
+[node name="ContinueButton" parent="Menu" instance=ExtResource( 6 )]
 margin_top = 112.0
 margin_right = 364.0
 margin_bottom = 216.0
+nextScenePath = "res://src/Levels/Level1.tscn"
 
-[node name="Options" parent="Menu" instance=ExtResource( 1 )]
+[node name="OptionsButton" parent="Menu" instance=ExtResource( 1 )]
 margin_top = 220.0
 margin_right = 364.0
 margin_bottom = 327.0
+nextScenePath = "res://src/Screens/OptionsScreen.tscn"
 
-[node name="Credits" parent="Menu" instance=ExtResource( 7 )]
+[node name="CreditsButton" parent="Menu" instance=ExtResource( 7 )]
 margin_top = 331.0
 margin_right = 364.0
 margin_bottom = 438.0
+nextScenePath = "res://src/Screens/CreditsScreen.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource( 3 )]
 margin_top = 442.0
